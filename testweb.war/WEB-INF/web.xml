@@ -4,4 +4,7 @@
  
     <display-name>JBoss Sample Web App</display-name>
     <distributable/>
+    <welcome-file-list>
+	<welcome-file>Counter.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
