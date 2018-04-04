@@ -26,7 +26,7 @@ try {
    //---------------------------------------------------
 	Context initCtx = new InitialContext();
 	Context envCtx = (Context)initCtx.lookup("java:/comp/env");
-   DataSource ds = (DataSource)envCtx.lookup("jdbc/testDS");
+   DataSource ds = (DataSource)envCtx.lookup("java:jboss/datasources/testDS");
 
    conn = ds.getConnection();
    stmt = conn.createStatement();
