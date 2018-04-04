@@ -1,52 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.io.*" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.util.*" %>
-<%@ page import="javax.sql.*" %>
-<%@ page import="javax.naming.*" %>
-<%
-//===================================================
-//디비연결 변수
-//---------------------------------------------------
-Connection  conn  = null;
-Statement   stmt  = null;
-ResultSet   rs    = null;
-//===================================================
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-//===================================================
-//쿼리 생성
-//---------------------------------------------------
-String query      = " SELECT 'RESULT' FROM DUAL ";
+<sql:query var="rs" dataSource="jdbc/testDS">
+select * from dual;
+</sql:query>
 
-//---------------------------------------------------
+<html>
+  <head>
+    <title>DB Test</title>
+  </head>
+  <body>
 
-try {
-   //===================================================
-   // Oracle Connection Start
-   //---------------------------------------------------
-	Context initCtx = new InitialContext();
-	Context envCtx = (Context)initCtx.lookup("java:/comp/env");
-   DataSource ds = (DataSource)envCtx.lookup("java:jboss/datasources/testDS");
+  <h2>Results</h2>
+  
+<c:forEach var="row" items="${rs.rows}">
+    Foo ${row.foo}<br/>
+    Bar ${row.bar}<br/>
+</c:forEach>
 
-   conn = ds.getConnection();
-   stmt = conn.createStatement();
-  	rs = stmt.executeQuery(query);
-   //===================================================
-
-   while(rs.next()) {          // 쿼리 결과 보여주기
-       String rs_str = rs.getString(1);
-       out.println(rs_str);
-   }
-
-}catch(SQLException se){
- out.println("[CONTENT]쿼리 에러 : SQLException ");
-}catch(NullPointerException ne){
- out.println("[CONTENT]널 에러 : NullPointerException ");
-}catch(Exception e){
- out.println("[CONTENT]에러 : Exception ");
-} finally { 
-  if (rs != null) try {rs.close(); }catch(SQLException ex) {}
-  if (stmt != null) try {stmt.close(); } catch(SQLException ex) {}
-  if (conn != null) try {conn.close(); }catch(SQLException ex) {}
-}
-%>
+  </body>
+</html>
