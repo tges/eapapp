@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<sql:query var="rs" dataSource="jdbc/testDS">
+<sql:query var="rs" dataSource="java:jboss/datasources/testDS">
 select * from dual;
 </sql:query>
 
