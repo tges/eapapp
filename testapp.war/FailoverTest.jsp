@@ -39,7 +39,7 @@ by incrementing a counter each time a user accesses a page.
   session.setAttribute("simplesession.counter", ival);
   System.out.println("[SessionTest] count = " + ival );
   
-  for(int i=0;i++;i<100) System.out.println(">>>>>>>>  "+ ssid );
+  for(int i=0;i<100;i++) System.out.println(">>>>>>>>  "+ ssid );
 %>
 
 <%
