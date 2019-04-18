@@ -11,7 +11,7 @@
 
 <h2>
 <font color=#DB1260>
-Failover Test 2.0 [ <%= java.net.InetAddress.getLocalHost().getCanonicalHostName  () %> ]
+Failover Test 1.0 [ <%= java.net.InetAddress.getLocalHost().getCanonicalHostName  () %> ]
 </font>
 </h2>
 
