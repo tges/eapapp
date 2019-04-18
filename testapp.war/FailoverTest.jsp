@@ -38,6 +38,8 @@ by incrementing a counter each time a user accesses a page.
     ival = new Integer(ival.intValue() + 1);
   session.setAttribute("simplesession.counter", ival);
   System.out.println("[SessionTest] count = " + ival );
+  
+  for(int i=0;i++;i<100) System.out.println(">>>>>>>>  "+ ssid );
 %>
 
 <%
