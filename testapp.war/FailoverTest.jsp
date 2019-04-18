@@ -11,7 +11,7 @@
 
 <h2>
 <font color=#DB1260>
-Failover Test [ <%= java.net.InetAddress.getLocalHost().getCanonicalHostName  () %> ]
+Failover Test 1.0 [ <%= java.net.InetAddress.getLocalHost().getCanonicalHostName  () %> ]
 </font>
 </h2>
 
@@ -39,7 +39,7 @@ by incrementing a counter each time a user accesses a page.
   session.setAttribute("simplesession.counter", ival);
   System.out.println("[SessionTest] count = " + ival );
   
-  for(int i=0;i<100;i++) System.out.println(">>>>>>>>  "+ ssid );
+  //for(int i=0;i<100;i++) System.out.println(">>>>>>>>  "+ ssid );
 %>
 
 <%
